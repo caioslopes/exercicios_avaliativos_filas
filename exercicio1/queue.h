@@ -5,7 +5,7 @@
 /**
  * Define o tamanho máximo da fila.
 */
-#define QUEUE_MAX_SIZE 4
+#define QUEUE_MAX_SIZE 20
 
 /**
  * Define o tipo de dado que será manipulado pela fila.
