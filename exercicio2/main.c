@@ -25,7 +25,6 @@ int main(int argc, char const *argv[])
 
     }while(opc != 0);
     
-
     return 0;
 }
 
@@ -34,35 +33,39 @@ void sistema_fila(Element opc, Element *prioridade, Queue *fila_prioridade, Queu
     switch (opc){
         case 1:
             if(!is_full(*fila_prioridade))
-                printf("Fila | %d: %s.\n", *num, enqueue(*fila_prioridade, *num) ? "Ficha Prioritária Retirada" : "ERRO");
+                printf("\nCódigo: %d | %s.\n", *num, enqueue(*fila_prioridade, *num) ? "Ficha Prioritária Retirada" : "ERRO");
                 *prioridade += 1;
                 *num += 1;
             break;
         case 2:
             if(!is_full(*fila_normal))
-                printf("Fila | %d: %s.\n", *num, enqueue(*fila_normal, *num) ? "Ficha Comum Retirada" : "ERRO");
+                printf("\nCódigo: %d | %s.\n", *num, enqueue(*fila_normal, *num) ? "Ficha Comum Retirada" : "ERRO");
                 *num += 1;
             break;
         case 3:
-            printf("Caixa: ");
+            printf("Número do Caixa: \n");
             scanf("%d", &caixa);
+
+            printf("\n#############\n");
+            printf("# Caixa: %d #", caixa);
+            printf("\n#############\n\n");
 
             if(!is_empty(*fila_prioridade) || !is_empty(*fila_normal)){
                 if(caixa >= 1 && caixa <= 3){
                     if(*prioridade != 0){
                         if(!is_empty(*fila_prioridade))
-                            printf("Cod: %d\n", dequeue(*fila_prioridade));
+                            printf("-> Código: %d | Fila Prioritária\n", dequeue(*fila_prioridade));
                             *prioridade -= 1;
                     }else{
                         if(!is_empty(*fila_normal))
-                            printf("Cod: %d\n", dequeue(*fila_normal));
+                            printf("-> Código: %d | Fila Comum\n", dequeue(*fila_normal));
                     }
                 }else{
                     if(!is_empty(*fila_normal))
-                        printf("Cod: %d\n", dequeue(*fila_normal));
+                        printf("-> Código: %d | Fila Comum\n", dequeue(*fila_normal));
                 }
             }else{
-                printf("Não há ningúem na fila.\n");
+                printf("-> Não há ningúem na fila.\n");
             }
             break;
         }

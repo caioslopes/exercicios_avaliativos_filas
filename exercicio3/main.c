@@ -10,22 +10,28 @@ int main(int argc, char const *argv[])
     printf("Digite os nomes:\n");
     init(&fila);
     while(!is_full(fila)){
-        scanf("%c", &el);
-        fflush(stdin);
-        printf("Enqueue %c: %s.\n", el, enqueue(fila, el) ? "OK" : "ERRO");
+        el = malloc(sizeof(char)*20);
+        fgets(el, 20, stdin);
+        enqueue(fila, el);
+        printf("Nome: %s", el);
     }
 
     while(!is_empty(fila)){
         aux = dequeue(fila);
+        
         if(flag < 2){
             enqueue(fila, aux);
             flag++;
         }else {
             flag = 0;
+            if(!is_empty(fila))
+                free(aux);
         }
     }
 
-    printf("\n** %c **\n", aux);
+    printf("\nSobrevivente: %s\n", aux);
+    free(aux);
+    
 
 
     return 0;

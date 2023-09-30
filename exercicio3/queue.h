@@ -5,12 +5,12 @@
 /**
  * Define o tamanho máximo da fila.
 */
-#define QUEUE_MAX_SIZE 5
+#define QUEUE_MAX_SIZE 40
 
 /**
  * Define o tipo de dado que será manipulado pela fila.
 */
-typedef char Element;
+typedef char* Element;
 
 /**
  * Define que a fila (Queue) é um PONTEIRO para uma
