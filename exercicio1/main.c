@@ -33,7 +33,8 @@ int main(int argc, char const *argv[])
         }
     }
 
-
+    free(fila);
+    free(temp);
 
     return 0;
 }
