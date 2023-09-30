@@ -13,7 +13,7 @@ int main(int argc, char const *argv[])
         el = malloc(sizeof(char)*20);
         fgets(el, 20, stdin);
         enqueue(fila, el);
-        printf("Nome: %s", el);
+        printf("Entrou na roda: %s", el);
     }
 
     while(!is_empty(fila)){
